@@ -2,7 +2,7 @@
 
 NUMBER=$1
 
-if [$NUMBER -lt 50]
+if [ $NUMBER -lt 50 ]
 then
     echo "Number is less than 50"
 else
