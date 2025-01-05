@@ -32,6 +32,7 @@ VALIDATE()
     fi
 }
 
+# Below code we need to give sudo sh package name to install multiple packages
 for package in $@
 do 
     dnf list installed $package &>>$LOG_FILE_NAME
