@@ -21,7 +21,6 @@ then
     exit 1 # Other than 0
 fi
 
-
 VALIDATE()
 {
     if [ $1 -ne 0 ]
@@ -39,7 +38,7 @@ do
 if [ $? -ne 0 ]
 then
     dnf install $package -y &>>$LOG_FILE_NAME
-    validate $? "Installing $package"
+    VALIDATE $? "Installing $package"
 else
     echo -e "$package is..$Y already installed $N"
 fi
