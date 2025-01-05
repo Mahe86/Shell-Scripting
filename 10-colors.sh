@@ -1,9 +1,9 @@
 #!/bin/bash
 
-USERID=$(id -u)
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
+USERID=$(id -u) # Display UserID value, For root user its 0
+R="\e[31m" # Print Red color
+G="\e[32m" # Print Green color
+Y="\e[33m" # Print Yellow color
 
 
 if [ $USERID -ne 0 ]
