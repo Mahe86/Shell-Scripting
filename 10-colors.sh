@@ -4,7 +4,7 @@ USERID=$(id -u) # Display UserID value, For root user its 0
 R="\e[31m" # Print Red color
 G="\e[32m" # Print Green color
 Y="\e[33m" # Print Yellow color
-
+N="\e[0m" # Print Default White color
 
 if [ $USERID -ne 0 ]
 then
@@ -17,10 +17,10 @@ VALIDATE()
 {
     if [ $1 -ne 0 ]
     then
-        echo -e "$2..$R FAILURE"
+        echo -e "$2..$R FAILURE $N"
         exit 1
     else
-        echo -e "$2..$G SUCCESS"
+        echo -e "$2..$G SUCCESS $N"
     fi
 }
 
@@ -33,7 +33,7 @@ then
     dnf install mysql -y
     VALIDATE $? "MYSQL Installation"
 else
-    echo -e "$Y MYSQL is already Installed"
+    echo -e "$Y MYSQL is already Installed $N"
 fi
 
 
@@ -45,7 +45,7 @@ then
     dnf install git -y
     VALIDATE $? "GIT Installation"
 else
-    echo -e "$Y GIT is aleady installed"
+    echo -e "$Y GIT is aleady installed $N"
 fi
 
 
