@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Please enter your username"
-read USERNAME
+read USERNAME # read command will read the value of the entered command.
 echo "username entered: $USERNAME"
 echo "Please enter your password"
 read -s PASSWORD # -s will not display the value entered.
