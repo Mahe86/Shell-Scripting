@@ -34,9 +34,9 @@ echo "Starting script at the time stamp :: $TIMESTAMP"
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 if [ -n "$FILES" ]
 then
-echo "Files Exists in the :: $SOURCE_DIR"
-ZIPFILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
-find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIPFILE"
+    echo "Files Exists in the :: $SOURCE_DIR"
+    ZIPFILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+    find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIPFILE"
     if [ -f "$ZIPFILE" ]
     then
         echo -e "successfully created zip files older than $DAYS"
