@@ -9,7 +9,7 @@ TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=${3:-14}
+DAYS=${3:-14} # if user is not providing no. of days, then 14 days will be taken default
 
 if [ $# -ls 2 ]
 then
