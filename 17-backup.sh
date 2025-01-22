@@ -35,6 +35,22 @@ FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
 if [ -n $FILES ]
 then
 echo "Files Exists in the :: $SOURCE_DIR"
+ZIPFILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIPFILE"
+    if [ -f $ZIPFILE ]
+    then
+        echo -e "successfully created zip files older than $DAYS"
+        while read -r filepath  # Here filepath is variable name and we can give any name
+        do 
+        echo "Deleting the files $filepath"
+        rm -rf $filepath
+        done <<< $FILES
+
+    else
+        echo -e "$R ERROR:: $N Failed to create zip file"
+        exit 1
+    fi
+
 else
-echo "$R ERROR:: $N Files doesn't Exists in the $SOURCE_DIR"
-fi
+    echo -e "$R ERROR:: $N Files doesn't Exists in the $SOURCE_DIR older then $DAYS"
+fi  
