@@ -11,6 +11,9 @@ SOURCE_DIR=$1
 DEST_DIR=$2
 DAYS=${3:-14} # if user is not providing no. of days, then 14 days will be taken default
 
+mkdir -p $LOGS_FOLDER
+echo "Created the $LOGS_FOLDER directory"
+
 if [ $# -ls 2 ]
 then
 echo -e "$R USAGE:: $N sh 17-backup.sh <source dir> <dest dir> <Days>"
